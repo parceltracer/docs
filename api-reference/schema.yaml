@@ -27,6 +27,15 @@ paths:
           description: Number of results to return per page.
           schema:
             type: integer
+        - in: query
+          name: phone_number
+          schema:
+            type: string
+            default: ""
+          description:
+            Filter result by a specific phone number. Given that customer's
+            phone numbers are unique, the result will contain at most a single customer
+            object
       tags:
         - Customers
       security:
