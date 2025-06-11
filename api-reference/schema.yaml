@@ -1029,15 +1029,20 @@ components:
   schemas:
     Area:
       type: object
+      description: |-
+        A ModelSerializer that takes an additional `fields` argument that
+        controls which fields should be displayed.
       properties:
         id:
           type: integer
           readOnly: true
         name_ar:
           type: string
+          default: ''
           maxLength: 200
         name_en:
           type: string
+          default: ''
           maxLength: 200
         district:
           $ref: '#/components/schemas/DistrictEnum'
@@ -1055,7 +1060,11 @@ components:
           type: string
           nullable: true
           maxLength: 200
+        code:
+          type: string
+          readOnly: true
       required:
+      - code
       - id
     CreateOrderSerializerDocs:
       type: object
@@ -1164,7 +1173,7 @@ components:
           description: Customer phone number. Required if 'id' is not provided.
         secondary_phone_number:
           type: string
-          description: Secondary customer phone number. Required if 'id' is not provided.
+          description: Secondary customer phone number.
         name:
           type: string
           description: Customer full name. Required if creating a new customer.
