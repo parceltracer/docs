@@ -1,0 +1,44 @@
+---
+title: Getting Started
+---
+
+ParcelTracer supports webhooks to help you receive updates about your orders. Every time an order is **created, updated, or cancelled**, we'll notify your registered webhook endpoints automatically.
+
+---
+
+## What Events Are Supported?
+
+Currently, ParcelTracer webhooks support **order lifecycle events:**
+- ✅ Order Created
+- ✅ Order Updated
+- ✅ Order Cancelled
+
+---
+
+## Example Webhook Request
+
+Here's an example of the payload you will receive at your webhook endpoint:
+
+```json
+{
+  "id": 12345,
+  "last_updated_at": "2025-06-20T12:00:00Z",
+  "data": {
+    "order_id": "12345",
+    "status": "CREATED",
+    ...
+  }
+}
+```
+
+## Registering a Webhook
+
+Go to the [API Integrations page](https://prod.parceltracer.app/api-integrations?tab=1) in the app.
+
+Click  **Register New** to register a new webhook.
+
+Provide a unique name and the target URL of your webhook endpoint.
+
+Once you create the webhook, a secret key will be generated. It will be automatically downloaded to your device.
+
+Make sure to store this key safely, as it cannot be retrieved later.

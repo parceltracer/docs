@@ -30,6 +30,14 @@
         "openapi": {
           "source": "/api-reference/schema.yaml"
         }
+      },
+      {
+        "group": "Webhooks",
+        "pages": [
+          "webhooks/getting-started",
+          "webhooks/securing-webhooks",
+          "webhooks/monitoring"
+        ]
       }
     ]
   },

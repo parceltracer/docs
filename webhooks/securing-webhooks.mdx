@@ -1,0 +1,72 @@
+---
+title: Securing Webhooks
+---
+
+Securing your webhook endpoints is **strongly recommended** to ensure that incoming requests genuinely originate from ParcelTracer.
+
+---
+
+## How Webhooks Are Secured
+
+When you create a webhook, ParcelTracer automatically:
+- Generates a **secret key**.
+- Signs each webhook payload using HMAC-SHA256 with the secret key.
+- Sends the signature in the `X-PT-Webhook-Signature` header.
+
+---
+
+## Example of Signature Header
+
+```http
+x-pt-webhook-signature 9a0f...7b1c
+```
+
+## How to Verify the Signature
+To ensure the webhook is legitimate:
+
+Compute the HMAC-SHA256 hash of the raw request body using your secret key.
+
+Compare your computed hash with the signature provided in the header.
+
+<Tabs>
+    <Tab value="javascript" title="JavaScript">
+        ```javascript
+        const crypto = require('crypto');
+
+        const secret = 'YOUR_WEBHOOK_SECRET_KEY';
+        const payload = req.rawBody;
+
+        const signature = crypto
+        .createHmac('sha256', secret)
+        .update(payload)
+        .digest('hex');
+        ```
+    </Tab> 
+
+    <Tab value="python" title="Python"> 
+        ```python 
+        import hmac import hashlib
+        secret = b'YOUR_WEBHOOK_SECRET_KEY'
+        payload = request.get_data()
+
+        signature = hmac.new(secret, payload, hashlib.sha256).hexdigest()
+        ```
+    </Tab>
+    
+    <Tab value="csharp" title="C#">
+        ```csharp
+        using System.Security.Cryptography;
+        using System.Text;
+
+        var secret = "YOUR_WEBHOOK_SECRET_KEY";
+        var payload = Encoding.UTF8.GetBytes(rawRequestBody);
+
+        using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secret));
+        var hash = hmac.ComputeHash(payload);
+
+        var signature = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        ```
+    </Tab> 
+</Tabs> 
+
+Compare the computed digest with the value found in the `x-pt-webhook-signature` header. If they are equal, it means the request is indeed originating from ParcelTracer.
