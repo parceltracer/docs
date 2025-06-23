@@ -1,0 +1,216 @@
+{
+  "REMARK": "THIS ISN'T USED IT'S JUST TO SAVE SOME PROGRESS TO BE INCLUDED LATER",
+
+  
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Parcel Tracer",
+  "colors": {
+    "primary": "#9B5DE5",
+    "light": "#7038B2",
+    "dark": "#7038B2"
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Quick Start",
+        "pages": [
+          "quickstart"
+        ]
+      },
+      {
+        "tab": "User Guide",
+        "anchors": [
+          {
+            "anchor": "For Delivery Companies",
+            "icon": "truck",
+            "pages": [
+              "user-guides/for-delivery-companies/create-account",
+              "user-guides/for-delivery-companies/main-dashboard",
+              {
+                "group": "Orders",
+                "pages": [
+                  "user-guides/for-delivery-companies/orders/introduction",
+                  "user-guides/for-delivery-companies/orders/creating-orders",
+                  "user-guides/for-delivery-companies/orders/listing-orders",
+                  "user-guides/for-delivery-companies/orders/view-order-details"
+                ]
+              },
+              {
+                "group": "Customers",
+                "pages": [
+                  "user-guides/for-delivery-companies/customers/introduction",
+                  "user-guides/for-delivery-companies/customers/create-customer",
+                  "user-guides/for-delivery-companies/customers/listing-customer"
+                ]
+              },
+              {
+                "group": "Merchants",
+                "pages": [
+                  "user-guides/for-delivery-companies/merchants/introduction",
+                  "user-guides/for-delivery-companies/merchants/create-merchant",
+                  "user-guides/for-delivery-companies/merchants/listing-merchants",
+                  "user-guides/for-delivery-companies/merchants/merchant-details"
+                ]
+              },
+              {
+                "group": "Drivers",
+                "pages": [
+                  "user-guides/for-delivery-companies/drivers/introduction",
+                  "user-guides/for-delivery-companies/drivers/create-driver",
+                  "user-guides/for-delivery-companies/drivers/listing-drivers",
+                  "user-guides/for-delivery-companies/drivers/driver-details",
+                  "user-guides/for-delivery-companies/drivers/assigning-orders"
+                ]
+              },
+              {
+                "group": "Employees",
+                "pages": [
+                  "user-guides/for-delivery-companies/employees/introduction",
+                  "user-guides/for-delivery-companies/employees/create-employee",
+                  "user-guides/for-delivery-companies/employees/listing-employees",
+                  "user-guides/for-delivery-companies/employees/employee-details"
+                ]
+              },
+              {
+                "group": "Branches",
+                "pages": [
+                  "user-guides/for-delivery-companies/branches/introduction",
+                  "user-guides/for-delivery-companies/branches/create-branch",
+                  "user-guides/for-delivery-companies/branches/listing-branches",
+                  "user-guides/for-delivery-companies/branches/branch-details"
+                ]
+              },
+              {
+                "group": "Accounting",
+                "pages": [
+                  "user-guides/for-delivery-companies/accounting/introduction",
+                  "user-guides/for-delivery-companies/accounting/driver-accounting",
+                  "user-guides/for-delivery-companies/accounting/merchant-accounting"
+                ]
+              }
+            ]
+          },
+          {
+            "anchor": "For Drivers",
+            "icon": "moped",
+            "pages": [
+              "user-guides/for-drivers/create-an-account",
+              "user-guides/for-drivers/join-an-organisation",
+              "user-guides/for-drivers/order-lookup",
+              "user-guides/for-drivers/invoices"
+            ]
+          },
+          {
+            "anchor": "For Merchants",
+            "icon": "store",
+            "pages": [
+              "user-guides/for-merchants/create-an-account",
+              {
+                "group": "Orders",
+                "pages": [
+                  "user-guides/for-merchants/orders/introduction",
+                  "user-guides/for-merchants/orders/create-order",
+                  "user-guides/for-merchants/orders/listing-orders",
+                  "user-guides/for-merchants/orders/view-order-details"
+                ]
+              },
+              "user-guides/for-merchants/invoices"
+            ]
+          },
+          {
+            "anchor": "For End Customers",
+            "icon": "people-simple",
+            "pages": [
+              "user-guides/for-end-customers/tracking-orders",
+              "user-guides/for-end-customers/coming-soon"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "api-reference/quickstart"
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": [
+              "models/customers",
+              "models/areas",
+              "models/customer-locations",
+              "models/orders"
+            ]
+          },
+          {
+            "group": "Routes",
+            "openapi": {
+              "source": "/api-reference/schema.yaml"
+            }
+          }
+        ]
+      },
+      {
+        "tab": "Webhooks",
+        "pages": [
+          "webhooks/getting-started",
+          "webhooks/securing-webhooks",
+          "webhooks/monitoring"
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "group": "User Guide",
+        "pages": [
+          "quickstart"
+        ]
+      },
+      {
+        "group": "Models",
+        "pages": [
+          "models/customers",
+          "models/areas",
+          "models/customer-locations",
+          "models/orders"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "openapi": {
+          "source": "/api-reference/schema.yaml"
+        }
+      },
+      {
+        "group": "Webhooks",
+        "pages": [
+          "webhooks/getting-started",
+          "webhooks/securing-webhooks",
+          "webhooks/monitoring"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/main-logo.png",
+    "dark": "/logo/main-logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Contact Us",
+        "href": "mailto:info@parceltracer.app"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Open App",
+      "href": "https://prod.parceltracer.app"
+    }
+  }
+}

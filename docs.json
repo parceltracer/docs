@@ -9,30 +9,35 @@
   },
   "favicon": "/favicon.png",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "User Guide",
-        "pages": [
-          "quickstart"
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "api-reference/quickstart"
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": [
+              "models/customers",
+              "models/areas",
+              "models/customer-locations",
+              "models/orders"
+            ]
+          },
+          {
+            "group": "Routes",
+            "openapi": {
+              "source": "/api-reference/schema.yaml"
+            }
+          }
         ]
       },
       {
-        "group": "Models",
-        "pages": [
-          "models/customers",
-          "models/areas",
-          "models/customer-locations",
-          "models/orders"
-        ]
-      },
-      {
-        "group": "API Reference",
-        "openapi": {
-          "source": "/api-reference/schema.yaml"
-        }
-      },
-      {
-        "group": "Webhooks",
+        "tab": "Webhooks",
         "pages": [
           "webhooks/getting-started",
           "webhooks/securing-webhooks",
