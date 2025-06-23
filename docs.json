@@ -29,7 +29,7 @@
             ]
           },
           {
-            "group": "Routes",
+            "group": "Endpoints",
             "openapi": {
               "source": "/api-reference/schema.yaml"
             }
