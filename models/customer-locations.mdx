@@ -1,8 +1,7 @@
 ---
 title: Customer Locations
-description: The Customer location entity represents a precise address of a customer.
 ---
-
+The Customer location entity represents a precise address of a customer.
 A customer can have several locations. Each location is identified by many details that helps carriers deliver the order without any delays.
 
 ## Fields
@@ -12,7 +11,7 @@ A customer can have several locations. Each location is identified by many detai
 A unique identifier assigned to each location.
 
 ### `area`: `object<Area>`
-Area represents a specific destination region, currently scoped to Lebanon only. It has the following attributes:
+[Area](/models/areas) represents a specific destination region, currently scoped to Lebanon only. 
 
 ### `directions`: `string`
 Extra indications to help the driver find the location more easily.
