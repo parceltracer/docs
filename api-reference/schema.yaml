@@ -1025,6 +1025,43 @@ paths:
                     details: 'detail: Not found.'
                   summary: Example of resource not found error
           description: Order not found
+  /pickups/:
+    get:
+      operationId: list_pickups
+      description: Retrieve all your pickup locations.
+      summary: List Pickup Locations
+      tags:
+      - Pickup Locations
+      security:
+      - MerchantAPIKey: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShopLocationSerializerForMerchant'
+              examples:
+                Areas:
+                  value:
+                  - - id: 63
+                      name: Main Pickup
+                      contact_person: Jack
+                      contact_phone: +961 3 121 323
+                      directions: 5th floor
+                      is_default: true
+                      area:
+                        id: 1727
+                        name_ar: ذوق مصبح
+                        name_en: Zouk Mosbeh
+                        district: Keserwan
+                        lat: '33.955739999999999'
+                        long: '35.619109999999999'
+                        maps_link: http://maps.google.com/maps?q=33.955739999999999,35.619109999999999
+                        code: LBN2075
+                  summary: A sample list of pickup locations
+          description: ''
 components:
   schemas:
     Area:
@@ -1664,6 +1701,34 @@ components:
         * `PAID_BY_DRIVER` - PAID_BY_DRIVER
         * `PENDING_PAYMENT_TO_MERCHANT` - PENDING_PAYMENT_TO_MERCHANT
         * `PAID_TO_MERCHANT` - PAID_TO_MERCHANT
+    ShopLocationSerializerForMerchant:
+      type: object
+      description: |-
+        A ModelSerializer that takes an additional `fields` argument that
+        controls which fields should be displayed.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          default: ''
+          maxLength: 200
+        contact_person:
+          type: string
+          maxLength: 200
+        contact_phone:
+          type: string
+          maxLength: 200
+        directions:
+          type: string
+          maxLength: 400
+        is_default:
+          type: boolean
+        area:
+          $ref: '#/components/schemas/Area'
+      required:
+      - id
     Workflow969Enum:
       enum:
       - STANDARD
