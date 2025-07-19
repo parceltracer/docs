@@ -43,6 +43,12 @@
           "webhooks/securing-webhooks",
           "webhooks/monitoring"
         ]
+      },
+      {
+        "tab": "Privacy Policy",
+        "pages": [
+          "privacy-policy"
+        ]
       }
     ]
   },
