@@ -1062,6 +1062,39 @@ paths:
                         code: LBN2075
                   summary: A sample list of pickup locations
           description: ''
+  /resolve-address/:
+    get:
+      operationId: list_areas_2
+      description: Detect geographic area based on free address input using AI.
+      summary: Resolve Free Address
+      parameters:
+      - in: query
+        name: address
+        schema:
+          type: string
+        description: Free-form address string to resolve.
+        required: true
+      tags:
+      - Areas
+      security:
+      - MerchantAPIKey: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              examples:
+                ResolvedArea:
+                  value:
+                    id: 146
+                    name_ar: عيناب
+                    name_en: Ainab
+                    district: Aley
+                    lat: '33.766414000000000'
+                    long: '35.546311000000000'
+                  summary: A sample area response
+          description: ''
 components:
   schemas:
     Area:
@@ -1701,6 +1734,48 @@ components:
         * `PAID_BY_DRIVER` - PAID_BY_DRIVER
         * `PENDING_PAYMENT_TO_MERCHANT` - PENDING_PAYMENT_TO_MERCHANT
         * `PAID_TO_MERCHANT` - PAID_TO_MERCHANT
+    Response:
+      type: object
+      description: |-
+        Detected area object based on provided address.
+
+        AI is used to resolve the provided address and detect the geographic area.
+
+        ATTENTION: Area detection will fail if the address is unclear or not specific enough.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name_ar:
+          type: string
+          default: ''
+          maxLength: 200
+        name_en:
+          type: string
+          default: ''
+          maxLength: 200
+        district:
+          $ref: '#/components/schemas/DistrictEnum'
+        lat:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,3}(?:\.\d{0,15})?$
+          nullable: true
+        long:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,3}(?:\.\d{0,15})?$
+          nullable: true
+        maps_link:
+          type: string
+          nullable: true
+          maxLength: 200
+        code:
+          type: string
+          readOnly: true
+      required:
+      - code
+      - id
     ShopLocationSerializerForMerchant:
       type: object
       description: |-
